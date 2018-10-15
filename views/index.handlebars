@@ -1,0 +1,43 @@
+<h1>Burgers!</h1>
+
+<h2>Burgers that are not vegan!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless vegan}}
+      {{> burgers/burger-Block vegan=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers that are vegan!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if vegan}}
+      {{> burgers/burger-block vegan=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burger">Burger Name: </label>
+    <input type="text" id="burber" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="bun">Burger Bun:</label>
+    <input type="text" id="bun" name="bun">
+  </div>
+
+  <div class="form-group">
+    <label for="vegan">Vegan?</label><br>
+    <input type="radio" name="vegan" value="1" checked> Vegan!<br>
+    <input type="radio" name="vegan" value="0"> Not Vegan...
+  </div>
+
+  <button type="submit">Add Order</button>
+</form>
